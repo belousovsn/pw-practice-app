@@ -10,9 +10,8 @@ export default defineConfig<TestOptions>({
   use: {
      globalsQaUrl: 'https://www.globalsqa.com/demo-site/draganddrop/',
      googleURL: 'https://www.google.com/',
-     baseURL: process.env.DEV === '1' ? 'http://localhost:4200/'
-              : process.env.STAGING === '1' ? 'http://localhost:4202/' 
-              : 'http://app:4200/',
+     baseURL: 'http://app:4200/',
+     //process.env.DEV === '1' ? 'http://localhost:4200/'
     trace: 'on-first-retry',
     actionTimeout: 20000,
     navigationTimeout: 25000,
@@ -21,21 +20,8 @@ export default defineConfig<TestOptions>({
 
   projects: [
     {
-      name: 'AWS'
-    },
-    {
-      name: 'Test-eap'
-    },
-    {
       name: 'chromium',
       //fullyParallel: true
-    },
-
-    {
-      name: 'firefox',
-      use: {
-        browserName: 'firefox'
-      }
     },
     {
       name: 'basic',
