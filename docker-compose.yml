@@ -1,0 +1,19 @@
+# version: '3'
+
+services:
+  app:
+    image: kinzul/pw_practice_app_sb:latest # Используем образ с приложением
+    volumes:
+      - ./app/tests:/app/tests # Монтируем тесты в контейнер
+      - ./app/:/app          # Монтируем приложение в контейнер
+    ports:
+      - "4200:4200"         # Открываем порт 4200
+    command: npm start -- --host 0.0.0.0 --disable-host-check  # Запускаем приложение на 4200 порту
+  test:
+    image: kinzul/pw_practice_app_sb:latest # Используем образ с приложением
+    depends_on:
+      - app # Зависимость от сервиса app
+    volumes:
+      - ./app/tests:/app/tests # Монтируем тесты в контейнер
+      - ./app/:/app         # Монтируем приложение в контейнер
+    command: npx playwright test --project=basic  # Запускаем тесты через npx
