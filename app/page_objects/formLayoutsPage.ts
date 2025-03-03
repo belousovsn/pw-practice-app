@@ -32,4 +32,25 @@ export class FormLayoutsPage extends HelperBase {
             }
         await usingInlineForm.getByRole('button').click()
     }
+
+    async submitBasicFormWithEmailPasswordAndCheckbox(email: string, password: string, checkMeOut: boolean) {
+        const basicForm = this.page.locator('nb-card', {hasText: "Basic form"})
+        await basicForm.getByRole('textbox', {name: 'Email'}).fill(email)
+        await basicForm.getByRole('textbox', {name: 'Password'}).fill(password)
+        const checked = await basicForm.getByRole('checkbox').isChecked()
+        if(checkMeOut)
+            if(!checked) {
+                await basicForm.getByRole('checkbox').check({force: true})
+            }
+        await basicForm.getByRole('button').click()
+    }
+
+    async submitBlockFormWithFirstLastNameEmailWebsite(firstName: string, lastName:string, email: string, webSite: string) {
+        const blockForm = this.page.locator('nb-card', {hasText: "Block form"})
+        await blockForm.getByRole('textbox', {name: 'First Name'}).fill(firstName)
+        await blockForm.getByRole('textbox', {name: 'Last Name'}).fill(lastName)
+        await blockForm.getByRole('textbox', {name: 'Email'}).fill(email)
+        await blockForm.getByRole('textbox', {name: 'Website'}).fill(webSite)
+        await blockForm.getByRole('button').click()
+    }
 }
