@@ -16,4 +16,4 @@ services:
     volumes:
       - ./app/tests:/app/tests # Монтируем тесты в контейнер
       - ./app/:/app         # Монтируем приложение в контейнер
-    command: npx playwright test --project=basic  # Запускаем тесты через npx
+    command: npx playwright test --project=testMobile  # Запускаем тесты через npx

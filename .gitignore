@@ -1,0 +1,57 @@
+# Игнорируем скомпилированные файлы и временные папки
+/app/dist
+/app/tmp
+/app/out-tsc
+
+# Игнорируем зависимости
+/app/node_modules
+
+# Игнорируем настройки IDE и редакторов
+/app/.idea
+/app/.project
+/app/.classpath
+/app/.c9/
+/app/*.launch
+/app/.settings/
+/app/*.sublime-workspace
+
+# Игнорируем настройки VSCode, кроме необходимых
+/app/.vscode/*
+!/app/.vscode/settings.json
+!/app/.vscode/tasks.json
+!/app/.vscode/launch.json
+!/app/.vscode/extensions.json
+
+# Игнорируем временные файлы и кэши
+/app/.angular/cache
+/app/.sass-cache
+/app/connect.lock
+/app/libpeerconnection.log
+/app/npm-debug.log
+/app/testem.log
+/app/typings
+
+# Игнорируем документацию и скриншоты
+/app/docs
+/app/screenshots
+
+# Игнорируем результаты тестов и отчёты
+/app/test-results/
+/app/playwright-report/
+/app/blob-report/
+
+# Игнорируем кэш Playwright
+/app/playwright/.cache/
+
+# Игнорируем системные файлы
+/app/.DS_Store
+/app/Thumbs.db
+
+# Игнорируем файлы окружения
+/app/.env
+/app/.env.local
+/app/.env.development
+/app/.env.production
+
+# Игнорируем конфигурацию Docker (если она находится в корне репозитория)
+docker-compose.yml

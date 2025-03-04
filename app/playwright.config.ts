@@ -4,9 +4,9 @@ import type { TestOptions } from './test-options';
 require('dotenv').config();
 
 export default defineConfig<TestOptions>({
-
+  fullyParallel: true,
   retries: process.env.CI ? 2 : 0,
-  reporter: 'html',
+  reporter: 'list',
   use: {
      globalsQaUrl: 'https://www.globalsqa.com/demo-site/draganddrop/',
      googleURL: 'https://www.google.com/',
@@ -34,8 +34,9 @@ export default defineConfig<TestOptions>({
       name: 'testMobile',
       testMatch: 'testMobile.spec.ts',
       use: {
-        ...devices['iPhone 13 Pro Max']
-      }
+        ...devices['Galaxy Note 3']
+      },
+      retries: 2
     }
   ]
 });
